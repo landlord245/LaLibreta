@@ -1,38 +1,27 @@
-package interfaz;
-
-import interfaz.panels.Hub;
+package interfaz.panels;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
-public class MainFrame extends JFrame {
-    private Hub hub;
+public class Hub extends JPanel {
     private Color colorPrimario;
     private Color colorSecundario;
     private Color colorOscuro;
-    public MainFrame() {
-        colorPrimario = new Color(169, 218, 255);
-        colorSecundario = new Color(16, 151, 255);
-        colorOscuro = new Color(0, 60, 106);
 
-        this.setTitle("La Libreta");
-        this.setSize(500, 500);
-        this.setLocationRelativeTo(this);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-        hub = new Hub(this.getSize(), colorPrimario, colorSecundario, colorOscuro);
-        this.add(hub);
-        this.setVisible(true);
+    public Hub(Dimension size, Color colorPrimario, Color colorSecundario, Color colorOscuro){
+        this.setBackground(colorPrimario);
+        int filas = calcularFilas();
+        this.setLayout(new GridLayout(5,filas, 2, 2));
+        this.setSize(size);
     }
-
-    public Hub getHub() {
-        return hub;
+    public int calcularFilas() {
+        int number = 0;
+        File file = new File("/home/gurjantsinght/Documentos/Test/");
+        number = file.list().length/5;
+        System.out.println(number);
+        return number;
     }
-
-    public void setHub(Hub hub) {
-        this.hub = hub;
-    }
-
     public Color getColorPrimario() {
         return colorPrimario;
     }
