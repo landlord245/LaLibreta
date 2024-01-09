@@ -1,2 +1,5 @@
-Hola Mundo.
-=)
+private Color cPrimario = new Color(144, 214, 184);
+private Color cSecundario = new Color(40, 115, 83);
+private Color cOscuro = new Color(0, 59, 34);
+private Dimension dimension = new Dimension(700, 700);
+private String rutaPrincipal = "src/Documentos";
